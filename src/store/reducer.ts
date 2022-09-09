@@ -5,23 +5,23 @@ const initialState: IState = {
 }
 
 export default function reducer(
-    state: IState = initialState, 
+    state: IState = initialState,
     action: Action
-): IState  {
-    switch(action.type) {
+): IState {
+    switch (action.type) {
         case ActionTypes.FETCH_EVENT_LIST_REQUEST:
             return state
 
         case ActionTypes.FETCH_EVENT_LIST_SUCCESS:
-            return { 
-                ...state, 
+            return {
+                ...state,
                 eventList: action.eventList.sort((a, b) => a.timestamp - b.timestamp)
             }
 
         case ActionTypes.FETCH_EVENT_LIST_FAILURE:
             return state
 
-        default: 
+        default:
             return state;
     }
 }
